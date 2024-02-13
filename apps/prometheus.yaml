@@ -16,7 +16,7 @@ spec:
         grafana:
           enabled: true
           ingress:
-            enabled: true
+            enabled: false
   destination:
     namespace: monitoring
     name: in-cluster
