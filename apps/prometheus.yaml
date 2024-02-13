@@ -17,10 +17,10 @@ spec:
       helm:
         valueFiles:
           - $values/apps/values/prometheus/values.yaml 
-    destination:
-      namespace: monitoring
-      name: in-cluster
-    syncPolicy:
-      automated: {}
-      syncOptions:
+  destination:
+    namespace: monitoring
+    name: in-cluster
+  syncPolicy:
+    automated: {}
+    syncOptions:
       - CreateNamespace=true
