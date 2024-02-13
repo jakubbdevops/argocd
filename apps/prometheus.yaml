@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: https://prometheus-community.github.io/helm-charts
-    chart: kube-prometheus-stack
+    chart: prometheus-community/kube-prometheus-stack
     targetRevision: '56.6.2'
   destination:
     namespace: monitoring
