@@ -1,28 +1,28 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: prometheus-stack
-  namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
+  name: kube-prometheus-stack
+  namespace: argocd
 spec:
-  project: default
-  source:
-    repoURL: https://prometheus-community.github.io/helm-charts
-    chart: kube-prometheus-stack
-    targetRevision: '56.6.2'
-    helm:
-      values: |-
-        grafana:
-          enabled: true
-          ingress:
-            enabled: false
   destination:
     namespace: monitoring
-    name: in-cluster
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    chart: kube-prometheus-stack
+    helm:
+      values: |-
+        prometheus-node-exporter:
+           hostRootFsMount:
+             enabled: false
+        prometheusOperator:
+           admissionWebhooks:
+             failurePolicy: Ignore
+    repoURL: https://prometheus-community.github.io/helm-charts
+    targetRevision: 56.6.2
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
     syncOptions:
-      - CreateNamespace=true
+    - ServerSideApply=true
+    - CreateNamespace=true
