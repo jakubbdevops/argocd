@@ -11,16 +11,16 @@ spec:
     - repoURL: https://github.com/jakubbdevops/argocd/
       targetRevision: main
       ref: values
-    repoURL: https://prometheus-community.github.io/helm-charts
-    chart: kube-prometheus-stack
-    targetRevision: '56.6.2'
-    helm:
-      valueFiles:
-        - $values/apps/values/prometheus/values.yaml 
-  destination:
-    namespace: monitoring
-    name: in-cluster
-  syncPolicy:
-    automated: {}
-    syncOptions:
+    - repoURL: https://prometheus-community.github.io/helm-charts
+      chart: kube-prometheus-stack
+      targetRevision: '56.6.2'
+      helm:
+        valueFiles:
+          - $values/apps/values/prometheus/values.yaml 
+    destination:
+      namespace: monitoring
+      name: in-cluster
+    syncPolicy:
+      automated: {}
+      syncOptions:
       - CreateNamespace=true
