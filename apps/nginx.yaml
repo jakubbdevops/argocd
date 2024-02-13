@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: postgres-operator
+  name: nginx-controler
   namespace: argocd
 spec:
   project: default
@@ -20,6 +20,9 @@ spec:
     server: 'https://kubernetes.default.svc'
     namespace: ingress-nginx
   syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
     syncOptions:
       - CreateNamespace=true
   ignoreDifferences:
