@@ -18,3 +18,7 @@ spec:
     bar: {}
   postgresql:
     version: "15"
+  syncPolicy:
+      automated:
+      prune: true
+      selfHeal: true
