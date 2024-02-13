@@ -11,6 +11,9 @@ spec:
     repoURL: https://prometheus-community.github.io/helm-charts
     chart: prometheus-community/kube-prometheus-stack
     targetRevision: '56.6.2'
+    helm:
+      valueFiles:
+        - values/prometheus/values.yaml 
   destination:
     namespace: monitoring
     name: in-cluster
