@@ -13,7 +13,7 @@ spec:
     targetRevision: '56.6.2'
     helm:
       valueFiles:
-        - values/prometheus/values.yaml 
+        - $values/apps/values/prometheus/values.yaml 
   destination:
     namespace: monitoring
     name: in-cluster
