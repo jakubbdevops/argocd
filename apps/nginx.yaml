@@ -6,8 +6,8 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://kubernetes.github.io/ingress-nginx'
-    targetRevision: 4.9.1
+    repoURL: 'oci://ghcr.io/nginxinc/charts/nginx-ingress'
+    targetRevision: 1.1.2
     helm:
       values: |
         controller:
