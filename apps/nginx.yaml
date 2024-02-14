@@ -6,8 +6,8 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'oci://ghcr.io/nginxinc/charts/nginx-ingress'
-    targetRevision: 1.1.2
+    repoURL: 'https://kubernetes.github.io/ingress-nginx'
+    targetRevision: 4.9.1
     helm:
       values: |
         controller:
@@ -15,11 +15,9 @@ spec:
             enabled: true
             minReplicas: 3
             maxReplicas: 8
-          service:
-            loadBalancer:
-              name: "shoot-nginx"
-      chart: nginx-ingress
-    release: nginx-ingress
+          name: "shoot-nginx"
+    chart: ingress-nginx
+    release: ingress-nginx
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: ingress-nginx
