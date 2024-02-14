@@ -13,8 +13,8 @@ spec:
         controller:
           autoscaling:
             enabled: true
-            minReplicas: 3
-            maxReplicas: 8
+            minReplicas: 2
+            maxReplicas: 4
             targetCPUUtilizationPercentage: 50
             targetMemoryUtilizationPercentage: 50
           name: "shoot"
