@@ -18,8 +18,8 @@ spec:
           service:
             loadBalancer:
               name: "shoot-nginx"
-      chart: ingress-nginx
-    release: ingress-nginx
+      chart: nginx-ingress
+    release: nginx-ingress
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: ingress-nginx
