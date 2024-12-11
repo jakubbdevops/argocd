@@ -304,6 +304,7 @@ scrape_configs:
     - icmp
   metrics_path: /probe
   scrape_timeout: 5s
+  prefer_ip_protocol: ip4
   static_configs:
   - targets:
     - seznam.cz
