@@ -9,7 +9,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://gihub.com/jakubbdevops/argocd.git
+    repoURL: https://github.com/jakubbdevops/argocd.git
     targetRevision: HEAD
     path: prometheus
   destination:
