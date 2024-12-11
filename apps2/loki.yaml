@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: loki
+  namespace: argo
+  labels:
+    cluster: c0
+    app: loki
+spec:
+  project: default
+  source:
+    repoURL: https://gitlab.com/tomkukral/training-model.git
+    targetRevision: HEAD
+    path: loki
+  destination:
+    name: in-cluster
+    namespace: argo
+  syncPolicy:
+    syncOptions:
+    - Validate=true
+    - CreateNamespace=true
