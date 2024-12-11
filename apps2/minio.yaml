@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: minio
+  namespace: argo
+  labels:
+    cluster: c1
+    app: minio
+spec:
+  project: default
+  source:
+    repoURL: https://gitlab.com/tomkukral/training-model.git
+    targetRevision: HEAD
+    path: minio
+  destination:
+    name: in-cluster
+    namespace: minio
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
