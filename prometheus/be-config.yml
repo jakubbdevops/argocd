@@ -15,4 +15,3 @@ modules:
         password: cinta
   icmp:
     prober: icmp
-    prefered_ip_protocol: ip4
